@@ -53,3 +53,11 @@ DEMO_MODE=true 时的演示账号包括 `platform@demo.local`、`admin1@demo.loc
 Vercel 可自动发现 app/main.py 的 FastAPI 入口，仓库提供 vercel.json。部署环境配置 DEMO_MODE=true、COOKIE_SECURE=true、BOOTSTRAP_PASSWORD（至少 12 字符）、JWT_SECRET（随机长字符串）；LLM_API_KEY 与 LLM_MODEL 按需配置。
 
 该部署适用于课程演示。SQLite 保存于实例的 /tmp/kitchen-data，新实例会重新初始化，多个实例之间的新增记录不共享。需要持续保存并跨实例共享用户、Wiki 和订单时，应先接入外部数据库再作为持续运营服务使用。Vercel Hobby 的资格和额度以平台当前规则为准。
+
+## Uppcoder Spark 部署
+
+在 Stacks 创建 FastAPI 应用，连接本仓库的 main 分支。根目录 main.py 提供平台默认的 FastAPI 入口，startup-app.sh 提供启动命令。依赖从 requirements.txt 安装。
+
+使用单实例与平台持久化的应用目录，SQLite 数据保存在应用目录 data/，也可通过 DATA_DIR 指向已确认的持久化卷。首次启动自动生成密码与 JWT 密钥，复用已有配置。登录信息保存在 data/initial-access.txt，仅通过 Uppcoder 登录后的 Terminal 或 Files 查看。该目录已加入 Git 忽略，不通过网站静态目录提供。
+
+应用完成验证后设置 Public，使网站可从普通浏览器访问；平台的 Terminal、Files 与编辑器仍由平台身份保护。真实上线地址、存储挂载和重启后的数据保留应在实际实例中核对。
