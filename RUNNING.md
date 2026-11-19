@@ -47,3 +47,9 @@ DEMO_MODE=true 时的演示账号包括 `platform@demo.local`、`admin1@demo.loc
 仓库提供 render.yaml，可通过 Render Blueprint 创建免费演示服务，构建命令为 `pip install -r requirements.txt`，启动命令为 `uvicorn app.main:app --host 0.0.0.0 --port $PORT`。设置 BOOTSTRAP_PASSWORD 后启动；LLM 配置可留空使用摘录模式。
 
 免费服务使用临时文件系统，重启或重新部署会重建演示数据。需要持续保存数据时，选择带持久化磁盘的服务并将 DATA_DIR 设置为挂载目录，该选项涉及付费服务。部署必须以 Render 实际返回的服务网址和健康检查结果为准。
+
+## Vercel Hobby 演示部署
+
+Vercel 可自动发现 app/main.py 的 FastAPI 入口，仓库提供 vercel.json。部署环境配置 DEMO_MODE=true、COOKIE_SECURE=true、BOOTSTRAP_PASSWORD（至少 12 字符）、JWT_SECRET（随机长字符串）；LLM_API_KEY 与 LLM_MODEL 按需配置。
+
+该部署适用于课程演示。SQLite 保存于实例的 /tmp/kitchen-data，新实例会重新初始化，多个实例之间的新增记录不共享。需要持续保存并跨实例共享用户、Wiki 和订单时，应先接入外部数据库再作为持续运营服务使用。Vercel Hobby 的资格和额度以平台当前规则为准。

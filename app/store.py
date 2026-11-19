@@ -10,7 +10,8 @@ passwords = PasswordHash.recommended()
 
 
 def directory():
-    path = Path(os.getenv('DATA_DIR', './data'))
+    default = '/tmp/kitchen-data' if os.getenv('VERCEL') else './data'
+    path = Path(os.getenv('DATA_DIR', default))
     path.mkdir(parents=True, exist_ok=True)
     return path
 
