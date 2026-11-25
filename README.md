@@ -25,3 +25,7 @@ FastAPI 应用包含角色登录、租户管理、Wiki、检索问答和订单�
 - [技术方案 Markdown](docs/%E5%90%8E%E5%8E%A8%E5%87%BA%E5%93%81%E4%B8%8E%E5%89%8D%E5%8E%85%E5%8D%8F%E4%BD%9C-%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88.md)
 - [技术方案 Word](docs/%E5%90%8E%E5%8E%A8%E5%87%BA%E5%93%81%E4%B8%8E%E5%89%8D%E5%8E%85%E5%8D%8F%E4%BD%9C-%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88.docx)
 - [可复用提示词 Markdown](docs/%E5%90%8E%E5%8E%A8%E5%87%BA%E5%93%81%E4%B8%8E%E5%89%8D%E5%8E%85%E5%8D%8F%E4%BD%9C-%E6%8F%90%E7%A4%BA%E8%AF%8D.md)
+
+## 开源贡献记录
+
+- [FDE-zuoye Issue 与 PR 提交记录](contributions/2026-11-25-FDE-zuoye-%E6%8F%90%E4%BA%A4%E8%AE%B0%E5%BD%95.md)
